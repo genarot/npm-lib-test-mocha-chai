@@ -15,35 +15,38 @@ function sum(arr) {
 describe.only('Numbers test', () => {
     const numero = 2;
     it('Devolver resultado 0 con array vacio de números', () => {
+        expect(sum([])).to.equal(0)
     });
 
-    it ('El número es igual ', () => {
-        
+    it('El número es igual ', () => {
+        expect(sum([1, 2, 3])).to.equal(6)
     });
     it('El número es mayor que 0', () => {
-        
-    })
+        expect(numero > 0).to.be.true;
+        expect(numero < 0).to.be.false
+    });
     it('La suma es de tipo númerico', () => {
-        
+        expect(sum([1, 2, 34])).to.be.a('number');
+        expect(typeof sum([])).to.equal('number')
     });
     it('No es número', () => {
-        
+        expect(sum([1, "dos"])).to.be.NaN
     });
 
     it('Comprobar el número resultante con un elemento en el array de la suma', () => {
-                    
+        expect(sum([3])).to.be.equal(3)
     });
 
     it('Comprobar el número (que está en formato string) resultante con un elemento en el array de la suma', () => {
-                   
+        expect(sum(["6"])).to.be.equal(6)
     });
 
     it('Array numérico con números negativos', () => {
-                  
+        expect(sum([1, -2, -3])).to.be.equal(-4)
     });
 
     it('Array numérico con números negativos y strings con valor numérico', () => {
-                  
+        expect(sum([4, "-19", "1"])).to.be.equal(-14)
     });
 
 });
